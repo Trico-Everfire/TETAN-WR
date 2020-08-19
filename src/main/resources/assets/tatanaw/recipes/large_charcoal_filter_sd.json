@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+   
+    "pattern":
+    [
+        "IFI",
+        "IFI",
+        "IFI"
+    ],
+   
+    "key":
+    {
+        "F":
+        {
+            "item": "simpledifficulty:charcoal_filter"
+        },
+        
+		"I":
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+   
+    "result":
+    {
+        "item": "tatanaw:large_charcoal_filter",
+        "count": 1
+    }
+}

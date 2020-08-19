@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "tatanaw:items/industrial_grade_large_charcoal_filter_3"
+	}
+}

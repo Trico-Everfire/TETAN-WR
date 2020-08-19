@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shaped",
+   
+    "pattern":
+    [
+        "GOG",
+        "IFI",
+        "ICI"
+    ],
+   
+    "key":
+    {
+        "F":
+        {
+            "item": "minecraft:flint_and_steel"
+        },
+        
+		"G":
+        {
+            "item": "minecraft:glass"
+        },
+        
+        "O":
+        {
+            "item": "minecraft:gold_ingot"
+        },
+        
+        "C":
+        {
+            "item": "simpledifficulty:campfire",
+    		"data": 0
+        },
+        
+		"I":
+        {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+   
+    "result":
+    {
+        "item": "tatanaw:refinery",
+        "count": 1
+    }
+}

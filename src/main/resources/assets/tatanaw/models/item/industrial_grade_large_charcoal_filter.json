@@ -1,0 +1,32 @@
+{
+"parent":"item/handheld","textures":{
+        
+   "layer0":"tatanaw:items/industrial_grade_large_charcoal_filter_3"
+        },
+            "overrides": [
+        {
+            "predicate": {
+                "filterlength": 0
+            },
+            "model": "tatanaw:item/industrial_grade_large_charcoal_filter_0"
+        },
+        {
+            "predicate": {
+                "filterlength": 1
+            },
+            "model": "tatanaw:item/industrial_grade_large_charcoal_filter_1"
+        },
+        {
+            "predicate": {
+                "filterlength": 2
+            },
+            "model": "tatanaw:item/industrial_grade_large_charcoal_filter_2"
+        },
+        {
+            "predicate": {
+                "filterlength": 3
+            },
+            "model": "tatanaw:item/industrial_grade_large_charcoal_filter_3"
+        }
+    ]
+}

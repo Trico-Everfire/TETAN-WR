@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=north,refining=false": { "model": "tatanaw:refinery" },
+        "facing=south,refining=false": { "model": "tatanaw:refinery", "y": 180 },
+        "facing=west,refining=false":  { "model": "tatanaw:refinery", "y": 270 },
+        "facing=east,refining=false":  { "model": "tatanaw:refinery", "y": 90 },
+        "facing=north,refining=true": { "model": "tatanaw:refinery_lit" },
+        "facing=south,refining=true": { "model": "tatanaw:refinery_lit", "y": 180 },
+        "facing=west,refining=true":  { "model": "tatanaw:refinery_lit", "y": 270 },
+        "facing=east,refining=true":  { "model": "tatanaw:refinery_lit", "y": 90 }
+    }
+}

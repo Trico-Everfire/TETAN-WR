@@ -1,0 +1,14 @@
+item.large_charcoal_filter_full.name=Large Charcoal Filter (FULL)
+item.large_charcoal_filter_almost_full.name=Large Charcoal Filter (2/3)
+item.large_charcoal_filter_almost_empty.name=Large Charcoal Filter (1/3)
+item.large_charcoal_filter_empty.name=Large Charcoal Filter (EMPTY)
+
+item.industrial_grade_large_charcoal_filter_full.name=Industrial Grade Large Charcoal Filter (FULL)
+item.industrial_grade_large_charcoal_filter_almost_full.name=Industrial Grade Large Charcoal Filter (2/3)
+item.industrial_grade_large_charcoal_filter_almost_empty.name=Industrial Grade Large Charcoal Filter (1/3)
+item.industrial_grade_large_charcoal_filter_empty.name=Industrial Grade Large Charcoal Filter (EMPTY)
+
+tile.refinery.name=Water Refinery
+container.refining=Refinery 
+
+itemGroup.tatanwr=TATANWR
