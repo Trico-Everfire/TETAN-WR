@@ -3,6 +3,7 @@ package com.tricoeverfire.tetanwr.blocks;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.charles445.simpledifficulty.item.ItemCanteen;
 import com.tricoeverfire.tetanwr.Main;
 import com.tricoeverfire.tetanwr.blocks.containers.RefineryContainer;
 import com.tricoeverfire.tetanwr.init.ModCompat;
@@ -29,6 +30,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fml.common.Loader;
 
 public class TileEntityRefinery extends TileEntityLockable implements ITickable, ISidedInventory
 {
@@ -194,6 +196,15 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
 	                	damage += 3;
 	                	//System.out.println(damage);
 	                }
+	                if(Loader.isModLoaded("simpledifficulty")) {
+	                	if(stacky.getItem() instanceof ItemCanteen) {
+	                		boolean isFull = stacky.getItemDamage() - stacky.getMaxDamage() == 0; 
+	                		if(!isFull && !ModCompat.IsPureCanteen(stacky)) {
+	                			damage += stacky.getMaxDamage() - stacky.getItemDamage();
+	                			isItemInside = true;
+	                		}
+	                	}
+	                }
                 }
             //	System.out.println(itemstack.getItemDamage() < (itemstack.getMaxDamage() - damage) && isItemInside);
           return isItemInside && itemstack.getItemDamage() <= (itemstack.getMaxDamage() - damage);
@@ -220,6 +231,16 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
 	        	System.out.println(ModCompat.PurifiedWater);
 	        	this.setInventorySlotContents(i, FluidUtil.getFilledBucket(new FluidStack(ModCompat.PurifiedWater,1)));
 	        }
+	        
+            if(Loader.isModLoaded("simpledifficulty")) {
+            	if(stacky.getItem() instanceof ItemCanteen) {
+            		boolean isFull = stacky.getItemDamage() - stacky.getMaxDamage() == 0; 
+            		if(!isFull && !ModCompat.IsPureCanteen(stacky)) {
+            			damage += stacky.getMaxDamage() - stacky.getItemDamage();
+            			this.setInventorySlotContents(i, ModCompat.PurifyCanteen(stacky));
+            		}
+            	}
+            }
         }
 
         itemstack.attemptDamageItem(damage, new Random(), null);
@@ -333,6 +354,17 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
             }
             else
             {
+ 
+                if(Loader.isModLoaded("simpledifficulty")) {
+                	
+                	if(stack.getItem() instanceof ItemCanteen) {
+                		boolean isFull = stack.getItemDamage() - stack.getMaxDamage() == 0; 
+                		if(!isFull && !ModCompat.IsPureCanteen(stack)) {
+                			return true;
+                		}
+                	}
+                }
+                
                 PotionType type = PotionUtils.getPotionFromItem(stack);
                 return type == PotionTypes.WATER || item == Items.WATER_BUCKET;
             }

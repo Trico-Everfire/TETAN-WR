@@ -1,5 +1,7 @@
 package com.tricoeverfire.tetanwr.blocks.containers;
 
+import com.charles445.simpledifficulty.item.ItemCanteen;
+import com.tricoeverfire.tetanwr.init.ModCompat;
 import com.tricoeverfire.tetanwr.items.LargeCharcoalFilter;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionType;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -235,6 +238,16 @@ public class RefineryContainer extends Container{
 
             public static boolean canHoldWater(ItemStack stack)
             {
+            	
+                if(Loader.isModLoaded("simpledifficulty")) {
+                	if(stack.getItem() instanceof ItemCanteen) {
+                		boolean isFull = stack.getItemDamage() - stack.getMaxDamage() == 0; 
+                		if(!isFull && !ModCompat.IsPureCanteen(stack)) {
+                			return true;
+                		}
+                	}
+                }
+            	
                 PotionType type = PotionUtils.getPotionFromItem(stack);
                 return type == PotionTypes.WATER || stack.getItem() == Items.WATER_BUCKET;
             }

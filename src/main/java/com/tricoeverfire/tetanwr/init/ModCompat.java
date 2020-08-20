@@ -6,6 +6,8 @@ import com.charles445.simpledifficulty.api.SDFluids;
 import com.charles445.simpledifficulty.api.SDItems;
 import com.charles445.simpledifficulty.api.config.JsonConfig;
 import com.charles445.simpledifficulty.api.config.json.JsonPropertyValue;
+import com.charles445.simpledifficulty.api.thirst.ThirstEnum;
+import com.charles445.simpledifficulty.item.ItemCanteen;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.tricoeverfire.tetanwr.Main;
@@ -14,6 +16,8 @@ import com.tricoeverfire.tetanwr.items.Canteen;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagInt;
 import net.minecraftforge.fluids.Fluid;
 import toughasnails.api.TANBlocks;
 import toughasnails.api.item.TANItems;
@@ -35,7 +39,6 @@ public class ModCompat {
     	toughasnails.init.ModConfig.blockTemperatureData.put(Main.MODID+"refinery", defaultBlockTemperatureData);
     	CharcoalFilter = TANItems.charcoal_filter;
     	PurifiedWater = TANBlocks.purified_water_fluid;
-    	System.out.println(PurifiedWater);
     	PurifiedWaterBottle = TANItems.purified_water_bottle;
     	PurifiedWaterCanteen = null; //TAN does not have this.
     	Canteen = TANItems.canteen;
@@ -47,9 +50,42 @@ public class ModCompat {
 		PurifiedWaterBottle = SDItems.purifiedWaterBottle;
 		PurifiedWater = SDFluids.blockPurifiedWater.getFluid();
 		ItemStack canteenFull = new ItemStack(SDItems.canteen);
-		canteenFull.setItemDamage(0);
-		PurifiedWaterCanteen = canteenFull;
+		PurifiedWaterCanteen = PurifyCanteen(canteenFull);
+		Canteen = SDItems.canteen;
 		
 	}
+	
+	public static ItemStack PurifyCanteen(ItemStack stack) {
+		stack.setTagInfo(ItemCanteen.CANTEENTYPE, new NBTTagInt(ThirstEnum.PURIFIED.ordinal()));
+		return stack;
+	}
+	
+	public static boolean IsPureCanteen(ItemStack stack) {
+		return getTypeTag(stack).getInt() == ThirstEnum.PURIFIED.ordinal();
+	}
+	
+	public static NBTTagInt getTypeTag(ItemStack stack)
+	{
+		if(stack.getTagCompound()==null)
+		{
+			//setTypeTag(stack,ThirstEnum.NORMAL.ordinal());
+			stack.setTagInfo(ItemCanteen.CANTEENTYPE, new NBTTagInt(ThirstEnum.NORMAL.ordinal()));
+			stack.setItemDamage(stack.getMaxDamage());
+			//setCanteenEmpty(stack);
+		}
+		
+		NBTBase tag = stack.getTagCompound().getTag(ItemCanteen.CANTEENTYPE);
+		if(tag instanceof NBTTagInt)
+		{
+			return (NBTTagInt)tag;
+		}
+		else
+		{
+			stack.getTagCompound().removeTag(ItemCanteen.CANTEENTYPE);
+			stack.setTagInfo(ItemCanteen.CANTEENTYPE, new NBTTagInt(ThirstEnum.NORMAL.ordinal()));
+			return new NBTTagInt(ThirstEnum.NORMAL.ordinal());
+		}
+	}
+	
 	
 }
