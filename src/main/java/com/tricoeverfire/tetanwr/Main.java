@@ -69,10 +69,19 @@ public class Main
     	}
     	
     	if(Loader.isModLoaded("simpledifficulty")) {
+    		try {
     		ModCompat.SDInit();
+    		} catch (Exception e) {
+    			
+    		}
     	}
     	if(Loader.isModLoaded("toughasnails")) {
+    		try {
     		ModCompat.TANinit();
+    		} catch (Exception e) {
+    			
+    		}
+    		
     	}
     }
 }

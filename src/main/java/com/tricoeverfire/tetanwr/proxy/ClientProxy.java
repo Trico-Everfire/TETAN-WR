@@ -1,13 +1,9 @@
 package com.tricoeverfire.tetanwr.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
-import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
-import toughasnails.api.ITANBlock;
 
 public class ClientProxy extends CommonProxy {
 	@Override
@@ -16,24 +12,24 @@ public class ClientProxy extends CommonProxy {
 		//ModItemColors.registerItemColors();
 	}
 	
-    @SuppressWarnings("rawtypes")
+  //  @SuppressWarnings("rawtypes")
 	@Override
     public void registerBlockSided(Block block)
     {
-        if (block instanceof ITANBlock)
-        {
-            ITANBlock bopBlock = (ITANBlock) block;
-
-            //Register non-rendering properties
-            IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
-
-            if (nonRenderingProperties != null)
-            {
-                // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
-                IStateMapper custom_mapper = (new StateMap.Builder()).ignore(nonRenderingProperties).build();
-                ModelLoader.setCustomStateMapper(block, custom_mapper);
-            }
-        }
+//        if (block instanceof ITANBlock)
+//        {
+//            ITANBlock bopBlock = (ITANBlock) block;
+//
+//            //Register non-rendering properties
+//            IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
+//
+//            if (nonRenderingProperties != null)
+//            {
+//                // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
+//                IStateMapper custom_mapper = (new StateMap.Builder()).ignore(nonRenderingProperties).build();
+//                ModelLoader.setCustomStateMapper(block, custom_mapper);
+//            }
+//        }
     }
 	
 //	@Override
