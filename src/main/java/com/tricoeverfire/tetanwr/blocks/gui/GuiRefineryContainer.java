@@ -1,6 +1,7 @@
 package com.tricoeverfire.tetanwr.blocks.gui;
 
 import com.tricoeverfire.tetanwr.blocks.containers.RefineryContainer;
+import com.tricoeverfire.tetanwr.init.ModConfig;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -59,7 +60,7 @@ public class GuiRefineryContainer extends GuiContainer
 
         if (i1 > 0)
         {
-            int j1 = (int)(28.0F * (1.0F - (float)i1 / 400.0F));
+            int j1 = (int)(28.0F * (1.0F - (float)i1 / ModConfig.refinetime));
 
             if (j1 > 0)
             {

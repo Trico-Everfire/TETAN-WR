@@ -40,7 +40,7 @@ public class ModCompat {
 	public static void TANinit() {
 		try {
     	TANItems.canteen = ModItems.registerItem(ModCompatMini.Canteen, "canteen", CreativeTabTAN.instance);
-    	List<BlockTemperatureData> defaultBlockTemperatureData = Lists.newArrayList(new BlockTemperatureData(new BlockStatePredicate(ModBlocks.Refinery.getDefaultState().withProperty(Refinary.REFINING, true), Sets.newHashSet(Refinary.REFINING)), 4.0F));
+    	List<BlockTemperatureData> defaultBlockTemperatureData = Lists.newArrayList(new BlockTemperatureData(new BlockStatePredicate(ModBlocks.Refinery.getDefaultState().withProperty(Refinary.REFINING, true), Sets.newHashSet(Refinary.REFINING)), ModConfig.refineryHeatLevel));
     	toughasnails.init.ModConfig.blockTemperatureData.put(Main.MODID+"refinery", defaultBlockTemperatureData);
     	CharcoalFilter = TANItems.charcoal_filter;
     	PurifiedWater = TANBlocks.purified_water_fluid;
@@ -54,7 +54,7 @@ public class ModCompat {
 	
 	public static void SDInit() {
 		try {
-		JsonConfig.registerBlockTemperature(ModBlocks.Refinery, 4, new JsonPropertyValue("refining","true"));
+		JsonConfig.registerBlockTemperature(ModBlocks.Refinery, ModConfig.refineryHeatLevel, new JsonPropertyValue("refining","true"));
 		CharcoalFilter = SDItems.charcoalFilter;
 		PurifiedWaterBottle = SDItems.purifiedWaterBottle;
 		PurifiedWater = SDFluids.blockPurifiedWater.getFluid();

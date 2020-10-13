@@ -25,11 +25,11 @@ eclipse {
     classpath {
         file {
             whenMerged { 
-                def lib = entries.find { it.path.contains 'ToughAsNails-1.12.2-3.1.0.139-universal.jar' }
-                lib.sourcePath = fileReference(file('/libs/ToughAsNails-TAN-1.12.x-3.x.x.zip'))
+                 def lib = entries.find { it.path.contains 'ToughAsNails-1.12.2-3.1.0.139-universal.jar' }
+                 lib.sourcePath = fileReference(file('/libs/ToughAsNails-TAN-1.12.x-3.x.x.zip'))
                 
-                def lib2 = entries.find { it.path.contains 'SimpleDifficulty-1.12.2-0.3.1.jar' }
-                lib2.sourcePath = fileReference(file('/libs/SimpleDifficulty-master.zip'))
+                 def lib2 = entries.find { it.path.contains 'SimpleDifficulty-1.12.2-0.3.2.jar' }
+                 lib2.sourcePath = fileReference(file('/libs/SimpleDifficulty-master.zip'))
             }
         }
     }
@@ -84,7 +84,7 @@ dependencies {
     // Real examples
    //  compile fileTree(dir: 'libs', include: ['*.jar']) // For all .jar files in folder
     compile files("/libs/ToughAsNails-1.12.2-3.1.0.139-universal.jar")
-    compile files("/libs/SimpleDifficulty-1.12.2-0.3.1.jar")
+    compile files("/libs/SimpleDifficulty-1.12.2-0.3.2.jar")
    //  compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
 
     // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.

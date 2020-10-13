@@ -1,16 +1,16 @@
 [
-{
-  "modid": "tatanaw",
-  "name": "TATAN WR Mod",
-  "description": "Adds a water refinery for ToughAsNails",
-  "version": "1.0",
-  "mcversion": "1.12.2",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Trico Everfire","Baxterdam (RpgJones)"],
-  "credits": "Trico Everifre for code, Baxterdam (RpgJones) for art and models",
-  "logoFile": "assets/tatanaw/textures/gui/logo.png",
-  "screenshots": [],
-  "dependencies": ["ToughAsNails-1.12.2-3.1.0.139-universal"]
-}
+	{
+	  "modid": "tatanaw",
+	  "name": "TATAN WR Mod",
+	  "description": "Adds a water refinery for ToughAsNails",
+	  "version": "1.2",
+	  "mcversion": "1.12.2",
+	  "url": "",
+	  "updateUrl": "",
+	  "authorList": ["Trico Everfire","Baxterdam (RpgJones)"],
+	  "credits": "Trico Everifre for code, Baxterdam (RpgJones) for art and models",
+	  "logoFile": "assets/tatanaw/textures/gui/logo.png",
+	  "screenshots": [],
+	  "dependencies": []
+	}
 ]

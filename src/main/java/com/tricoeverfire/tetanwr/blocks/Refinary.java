@@ -19,6 +19,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -232,12 +233,18 @@ public class Refinary extends Block implements ITileEntityProvider{
 		super.onBlockHarvested(worldIn, pos, state, player);
 	}
 	
-//	@Override
-//	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-//		TileEntityRefinery tileentity = (TileEntityRefinery) worldIn.getTileEntity(pos);
-//		InventoryHelper.dropInventoryItems(worldIn, pos, tileentity);
-//		super.breakBlock(worldIn, pos, state);
-//	}
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		TileEntityRefinery tileentity = (TileEntityRefinery) worldIn.getTileEntity(pos);
+		InventoryHelper.dropInventoryItems(worldIn, pos, tileentity);
+		super.breakBlock(worldIn, pos, state);
+	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state) {

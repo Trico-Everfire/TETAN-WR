@@ -26,7 +26,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class RegistryHandler {
 
 	
-	
 	private static List<ResourceLocation> thisList = Lists.newArrayList(LootTableList.CHESTS_ABANDONED_MINESHAFT,LootTableList.CHESTS_DESERT_PYRAMID,LootTableList.CHESTS_END_CITY_TREASURE,LootTableList.CHESTS_IGLOO_CHEST,LootTableList.CHESTS_JUNGLE_TEMPLE,LootTableList.CHESTS_STRONGHOLD_CORRIDOR,LootTableList.CHESTS_STRONGHOLD_CROSSING,LootTableList.CHESTS_VILLAGE_BLACKSMITH,LootTableList.CHESTS_WOODLAND_MANSION,LootTableList.CHESTS_SIMPLE_DUNGEON);
 
 	@SubscribeEvent //add IRecipe event method
@@ -37,9 +36,8 @@ public class RegistryHandler {
 	@SubscribeEvent //add IRecipe event method
 	public static void onblockRegister(RegistryEvent.Register<Block> event) {
 		TileEntityHandler.registerTileEntities();
-	}
-	
 
+	}
 
 	@SubscribeEvent
     public static void onLootTableLoad(LootTableLoadEvent event)
@@ -66,10 +64,6 @@ public class RegistryHandler {
 	            }
 			}
 		}
-		//CHESTS_SIMPLE_DUNGEON
-		//CHESTS_VILLAGE_BLACKSMITH
-		//CHESTS_ABANDONED_MINESHAFT
-		//CHESTS_NETHER_BRIDGE
 		
     }
 	

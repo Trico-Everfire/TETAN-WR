@@ -3,10 +3,12 @@ package com.tricoeverfire.tetanwr.blocks;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.charles445.simpledifficulty.api.item.IItemCanteen;
 import com.charles445.simpledifficulty.item.ItemCanteen;
 import com.tricoeverfire.tetanwr.Main;
 import com.tricoeverfire.tetanwr.blocks.containers.RefineryContainer;
 import com.tricoeverfire.tetanwr.init.ModCompat;
+import com.tricoeverfire.tetanwr.init.ModConfig;
 import com.tricoeverfire.tetanwr.items.LargeCharcoalFilter;
 
 import net.minecraft.block.state.IBlockState;
@@ -125,7 +127,7 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
         else if (flag && this.fuel > 0)
         {
             --this.fuel;
-            this.refineTime = 400;
+            this.refineTime = ModConfig.refinetime;
             this.ingredientID = itemstack1.getItem();
             this.markDirty();
         }
@@ -197,10 +199,11 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
 	                	//System.out.println(damage);
 	                }
 	                if(Loader.isModLoaded("simpledifficulty")) {
-	                	if(stacky.getItem() instanceof ItemCanteen) {
-	                		boolean isFull = stacky.getItemDamage() - stacky.getMaxDamage() == 0; 
+	                	if(stacky.getItem() instanceof IItemCanteen) {
+	                		IItemCanteen canteenItem = (IItemCanteen) stacky.getItem();
+	                		boolean isFull = canteenItem.isCanteenEmpty(stacky);
 	                		if(!isFull && !ModCompat.IsPureCanteen(stacky)) {
-	                			damage += stacky.getMaxDamage() - stacky.getItemDamage();
+	                			damage += canteenItem.getDoses(stacky);
 	                			isItemInside = true;
 	                		}
 	                	}
@@ -233,10 +236,11 @@ public class TileEntityRefinery extends TileEntityLockable implements ITickable,
 	        }
 	        
             if(Loader.isModLoaded("simpledifficulty")) {
-            	if(stacky.getItem() instanceof ItemCanteen) {
-            		boolean isFull = stacky.getItemDamage() - stacky.getMaxDamage() == 0; 
+            	if(stacky.getItem() instanceof IItemCanteen) {
+            		IItemCanteen canteenItem = (IItemCanteen) stacky.getItem();
+            		boolean isFull = canteenItem.isCanteenEmpty(stacky);
             		if(!isFull && !ModCompat.IsPureCanteen(stacky)) {
-            			damage += stacky.getMaxDamage() - stacky.getItemDamage();
+            			damage += canteenItem.getDoses(stacky);
             			this.setInventorySlotContents(i, ModCompat.PurifyCanteen(stacky));
             		}
             	}

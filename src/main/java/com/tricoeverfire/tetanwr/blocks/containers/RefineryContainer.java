@@ -1,6 +1,6 @@
 package com.tricoeverfire.tetanwr.blocks.containers;
 
-import com.charles445.simpledifficulty.item.ItemCanteen;
+import com.charles445.simpledifficulty.api.item.IItemCanteen;
 import com.tricoeverfire.tetanwr.init.ModCompat;
 import com.tricoeverfire.tetanwr.items.LargeCharcoalFilter;
 
@@ -240,8 +240,9 @@ public class RefineryContainer extends Container{
             {
             	
                 if(Loader.isModLoaded("simpledifficulty")) {
-                	if(stack.getItem() instanceof ItemCanteen) {
-                		boolean isFull = stack.getItemDamage() - stack.getMaxDamage() == 0; 
+                	if(stack.getItem() instanceof IItemCanteen) {
+                		IItemCanteen canteenItem = (IItemCanteen) stack.getItem();
+                		boolean isFull = canteenItem.isCanteenEmpty(stack);
                 		if(!isFull && !ModCompat.IsPureCanteen(stack)) {
                 			return true;
                 		}
