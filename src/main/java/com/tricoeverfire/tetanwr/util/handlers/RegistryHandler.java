@@ -30,7 +30,9 @@ public class RegistryHandler {
 
 	@SubscribeEvent //add IRecipe event method
 	public static void onRecipeRegister(RegistryEvent.Register<IRecipe> event) {
-		event.getRegistry().register(new CustomRecipe().setRegistryName(new ResourceLocation(Main.MODID,"repairCustomItem")));
+		CustomRecipe recipe = new CustomRecipe();
+		recipe.setRegistryName(new ResourceLocation(Main.MODID,"repairCustomItem"));
+		event.getRegistry().register(recipe);
 
 	}
 	@SubscribeEvent //add IRecipe event method

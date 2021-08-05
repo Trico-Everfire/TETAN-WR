@@ -22,6 +22,10 @@ public class ModConfig {
 	@Config.RequiresMcRestart
 	public static float refineryHeatLevel = 4.0f;
 	
+	@Config.Comment("the total amount of refine time needed to refine an item.")
+	@Config.Name("Refine Time")
+	public static int bellowTime = 400;
+	
 	@Mod.EventBusSubscriber(modid = Main.MODID)
 	private static class EventHandler
 	{
